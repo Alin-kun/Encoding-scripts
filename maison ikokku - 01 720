@@ -15,6 +15,7 @@ badframes(2401,2519,2946,3481,3612,4487,4655,5121,5222,6054,6282,6568,6920,7360,
 - scene filter facut pentru eliminarea frame-urilor cu ghost - unele au fost lasate, neavand ghosting, doar usor blur
 
 -------  parametrii x264/5 -------
+- dupa terminarea encode-ului pc-ul se va stinge
 
 
 @echo off
