@@ -3,3 +3,5 @@ Crop(240, 0,-240,-0)
 DeGrainMedian(limitY=4, limitUV=6, mode=4, interlaced=false, norow=false)
 f3kdb()
 Levels(10, 1.000, 255, 0, 255, coring=true)
+ ___________________________________________
+ "C:\encoding\avs4x26x.exe" --x265-binary "C:\encoding\x265-10b.exe" --preset slow --psy-rd 1.5 --psy-rdoq=2.5 --no-rect --deblock -2:-2 --crf 18.5 --no-sao --aq-mode 1 --qcomp 0.65 --bframes 8 --aq-strength 0.8 --colorprim bt709 --transfer bt709 --colormatrix bt709  --output-depth 10 -o "gundam after 8th ep9 filt.265" "8th ms team.avs" 
