@@ -1,0 +1,39 @@
+Import("G:\Backup\AV+ BACK\plugins\f3kgrainplus.avsi")
+LoadPlugin("G:\Backup\AV+ BACK\plugins+\badframes.dll")
+
+
+LWLibavVideoSource("J:\Maison Ikokku - 01 [BD REMUX][JP].mkv").crop(240,0,-242,-0)
+ResampleHQ(width=958, height=720, dither=False, kernel="Spline36", chroma_kernel="Bilinear")
+RemoveGrain(mode=1)
+badframes(2401,2519,2946,3481,3612,4487,4655,5121,5222,6054,6282,6568,6920,7360,7422,7619,7803,7947,8150,8869,9343,9434,9513,10845,11112,11019,11232,11364,11400,11478,11634,11552,11671,11851,12101,12394,12534,12702,13017,13091,13215,13230,13296,13596,13635,14181,14458,14740,15265,15529,15783,15843,16115,17069,17285,17539,17671,18019,18169,18521,18717,18825,19115,19637,20273,20765,20849,21449,21726,22617,22800,22884,22944,23244,23334,23363,23663,23743,24491,24803,25115,25421,25541,25787,26090,26135,26303,26546,26828,27017,27119,27287,27479,27605,27806,28232,28304,28376,28688,28820,29002,29392,29539,29789,30221,30971,31067,31130,31704,31941,32121,32592,32688,33253,33481,33625,34362,34410, blend=false)
+
+
+
+
+
+
+-------  parametrii x264/5---------
+
+
+@echo off
+
+set ENCODER_PATH="C:\encoding\avs4x26x.exe"
+set X265_PATH="C:\encoding\x265_x64.exe"
+set AVS_SCRIPT="maison.avs"
+set OUTPUT_FILE="maison 01 filtrat.265"
+set X265_OPTIONS=--preset slow --psy-rd 1.35 --psy-rdoq=1.75 --no-rect --deblock -2:-2 --crf 18.5 --no-sao --aq-mode 1 --qcomp 0.72 --bframes 8 --aq-strength 0.6 --colorprim bt709 --transfer bt709 --colormatrix bt709 --output-depth 10
+
+rem Run x265 encoding
+%ENCODER_PATH% --x265-binary %X265_PATH% %X265_OPTIONS% -o %OUTPUT_FILE% %AVS_SCRIPT%
+
+rem Check if encoding was successful
+if %ERRORLEVEL% equ 0 (
+    echo Encoding completed successfully.
+    rem Add a delay before shutting down to ensure the system has enough time to finish any pending tasks.
+    timeout /t 10 /nobreak >nul
+    rem Shut down the PC
+    shutdown /s /f /t 0
+) else (
+    echo Encoding failed.
+    pause
+)
