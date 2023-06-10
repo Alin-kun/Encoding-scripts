@@ -1,0 +1,5 @@
+LWLibavVideoSource("E:\Anime BDMV\Mobile Suit Gundam The 08th MS Team S01 [BD Remux Dual Audio 1080p AVC 3xFLAC] [hchcsen]\[hchcsen] Mobile Suit Gundam The 08th MS Team S01E09 [BD Remux Dual Audio 1080p AVC 3xFLAC].mkv")
+Crop(240, 0,-240,-0)
+DeGrainMedian(limitY=4, limitUV=6, mode=4, interlaced=false, norow=false)
+f3kdb()
+Levels(10, 1.000, 255, 0, 255, coring=true)
